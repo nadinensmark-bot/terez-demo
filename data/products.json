@@ -4,36 +4,63 @@
     "nazev": "Mikina SensiHome PAW",
     "kategorie": "Mikiny",
     "cena": 1790,
-    "velikosti": ["S", "M", "L", "XL", "XXL"],
-    "barvy": ["Béžová", "Černá"],
+    "velikosti": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "barvy": [
+      "Béžová",
+      "Černá"
+    ],
     "skladem": true,
     "novinka": true,
     "obrazek": "mikina",
-    "popis": "Měkká mikina s kapucí a kresbou psího profilu na hrudi. Organická bavlna, unisex střih. Z každé prodané mikiny jde část výtěžku na projekt bezpečného domova pro psy se smyslovým hendikepem."
+    "popis": "Měkká mikina s kapucí a kresbou psího profilu na hrudi. Organická bavlna, unisex střih. Z každé prodané mikiny jde část výtěžku na projekt bezpečného domova pro psy se smyslovým hendikepem.",
+    "foto": "assets/img/mikina.jpg"
   },
   {
     "id": "tricko",
     "nazev": "Tričko SensiHome PAW",
     "kategorie": "Trička",
     "cena": 690,
-    "velikosti": ["XS", "S", "M", "L", "XL"],
-    "barvy": ["Černá", "Krémová"],
+    "velikosti": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "barvy": [
+      "Černá",
+      "Krémová"
+    ],
     "skladem": true,
     "novinka": false,
     "obrazek": "tricko",
-    "popis": "Bavlněné tričko s linkovou kresbou psa na zádech a tlapkou na hrudi. Unisex střih, příjemný materiál na každý den."
+    "popis": "Bavlněné tričko s linkovou kresbou psa na zádech a tlapkou na hrudi. Unisex střih, příjemný materiál na každý den.",
+    "foto": "assets/img/tricko.jpg"
   },
   {
     "id": "ponozky",
     "nazev": "Ponožky SensiHome PAW",
     "kategorie": "Ponožky",
     "cena": 290,
-    "velikosti": ["35 až 38", "39 až 42", "43 až 46"],
-    "barvy": ["Motýlci"],
+    "velikosti": [
+      "35 až 38",
+      "39 až 42",
+      "43 až 46"
+    ],
+    "barvy": [
+      "Motýlci"
+    ],
     "skladem": true,
     "novinka": false,
     "obrazek": "ponozky",
-    "popis": "Krémové ponožky s modrými motýlky a tmavou patou a špičkou. Bavlna s elastanem, drží tvar."
+    "popis": "Krémové ponožky s modrými motýlky a tmavou patou a špičkou. Bavlna s elastanem, drží tvar.",
+    "foto": "assets/img/ponozky.jpg"
   },
   {
     "id": "klicenka",
@@ -41,11 +68,15 @@
     "kategorie": "Klíčenky",
     "cena": 249,
     "velikosti": [],
-    "barvy": ["Motýlci", "Tyrkysová"],
+    "barvy": [
+      "Motýlci",
+      "Tyrkysová"
+    ],
     "skladem": true,
     "novinka": false,
     "obrazek": "klicenka",
-    "popis": "Textilní poutko s kovovou tlapkou a logem SensiHome PAW. Drobnost, která pomáhá."
+    "popis": "Textilní poutko s kovovou tlapkou a logem SensiHome PAW. Drobnost, která pomáhá.",
+    "foto": "assets/img/klicenka.jpg"
   },
   {
     "id": "zalozka",
@@ -53,10 +84,14 @@
     "kategorie": "Záložky",
     "cena": 99,
     "velikosti": [],
-    "barvy": ["Tyrkysová", "Krémová"],
+    "barvy": [
+      "Tyrkysová",
+      "Krémová"
+    ],
     "skladem": false,
     "novinka": false,
     "obrazek": "zalozka",
-    "popis": "Papírová záložka s ilustrací Malvínky a krátkým příběhem projektu na zadní straně."
+    "popis": "Papírová záložka s ilustrací Malvínky a krátkým příběhem projektu na zadní straně.",
+    "foto": ""
   }
 ]

@@ -52,6 +52,11 @@
     }
   }
 
+  function productImg(p, alt) {
+    if (p.foto) return `<img src="${p.foto}" alt="${alt || p.nazev}" loading="lazy">`;
+    return `<div class="nophoto">${productArt(p.obrazek)}<span>Foto připravujeme</span></div>`;
+  }
+
   function logoSvg() {
     return '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 24L24 10l16 14v16H8z" fill="none" stroke="#1aa3a6" stroke-width="3" stroke-linejoin="round"/><path d="M4 26L24 8l20 18" fill="none" stroke="#1aa3a6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><g fill="#1aa3a6"><path d="M24 36c-3.2 0-5.6-2-5.6-4.6 0-1.7 1.2-2.7 2.3-3.8.9-1 1.6-2.3 3.3-2.3s2.4 1.3 3.3 2.3c1.1 1.1 2.3 2.1 2.3 3.8 0 2.6-2.4 4.6-5.6 4.6z"/><ellipse cx="17.5" cy="25" rx="1.6" ry="2.3"/><ellipse cx="30.5" cy="25" rx="1.6" ry="2.3"/><ellipse cx="20.8" cy="21" rx="1.6" ry="2.3"/><ellipse cx="27.2" cy="21" rx="1.6" ry="2.3"/></g></svg>';
   }
@@ -142,7 +147,7 @@
       id: r.id || r.nazev.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
       nazev: r.nazev, kategorie: r.kategorie, cena: Number(String(r.cena).replace(/[^\d.,]/g, "").replace(",", ".")) || 0,
       velikosti: list(r.velikosti), barvy: list(r.barvy), skladem: yes(r.skladem), novinka: yes(r.novinka),
-      obrazek: r.obrazek || "zalozka", popis: r.popis || ""
+      obrazek: r.obrazek || "zalozka", foto: r.foto || "", popis: r.popis || ""
     }));
   }
   let _products = null;
@@ -174,7 +179,7 @@
   function addToCart(p, size, color, qty) {
     const c = getCart(); const key = [p.id, size, color].join("|");
     const ex = c.find(i => i.key === key);
-    if (ex) ex.qty += qty; else c.push({ key, id: p.id, nazev: p.nazev, cena: p.cena, size, color, qty, obrazek: p.obrazek });
+    if (ex) ex.qty += qty; else c.push({ key, id: p.id, nazev: p.nazev, cena: p.cena, size, color, qty, obrazek: p.obrazek, foto: p.foto || "" });
     setCart(c);
     toast(`Přidáno do košíku: ${p.nazev}${size ? ", " + size : ""}${color ? ", " + color : ""}`);
   }
@@ -200,7 +205,7 @@
     return `<article class="card" data-id="${p.id}">
       ${p.novinka ? '<span class="tag">Novinka</span>' : ""}${!p.skladem ? '<span class="tag out">Vyprodáno</span>' : ""}
       <button class="fav${fav ? " on" : ""}" data-fav="${p.id}" aria-label="Oblíbené">${I.heart}</button>
-      <a class="img" href="produkt.html?id=${p.id}">${productArt(p.obrazek)}</a>
+      <a class="img" href="produkt.html?id=${p.id}">${productImg(p)}</a>
       <div class="body">
         <a class="name" href="produkt.html?id=${p.id}">${p.nazev}</a>
         <div class="price">${money(p.cena)}</div>
@@ -244,9 +249,9 @@
     root.innerHTML = `
       <div class="crumbs"><a href="index.html">Merch</a> / <a href="index.html#produkty">${p.kategorie}</a> / ${p.nazev}</div>
       <div class="layout">
-        <div class="gallery"><div class="main">${productArt(p.obrazek)}</div>
+        <div class="gallery"><div class="main">${productImg(p)}</div>
           <div class="thumbs"><div></div><div></div><div></div></div>
-          <p class="muted" style="font-size:.85rem;margin-top:.6rem">Zástupná ilustrace. V&nbsp;ostré verzi produktové fotky.</p></div>
+          <p class="muted" style="font-size:.85rem;margin-top:.6rem">Fotky z&nbsp;mockupu, v&nbsp;ostré verzi finální produktové fotky.</p></div>
         <div>
           <h1 style="font-size:2rem">${p.nazev}</h1>
           <div class="price">${money(p.cena)}</div>
@@ -282,7 +287,7 @@
           <div>
             <table><thead><tr><th>Produkt</th><th>Množství</th><th style="text-align:right">Cena</th></tr></thead><tbody>
             ${c.map(i => `<tr>
-              <td><div class="item"><div class="thumb">${productArt(i.obrazek)}</div><div><strong>${i.nazev}</strong><br><span class="muted" style="font-size:.85rem">${[i.size, i.color].filter(Boolean).join(", ")}</span><br><button class="remove" data-rm="${i.key}">Odebrat</button></div></div></td>
+              <td><div class="item"><div class="thumb">${productImg(i, i.nazev)}</div><div><strong>${i.nazev}</strong><br><span class="muted" style="font-size:.85rem">${[i.size, i.color].filter(Boolean).join(", ")}</span><br><button class="remove" data-rm="${i.key}">Odebrat</button></div></div></td>
               <td><div class="qty"><button data-dec="${i.key}">−</button><input value="${i.qty}" readonly><button data-inc="${i.key}">+</button></div></td>
               <td style="text-align:right;font-weight:700">${money(i.cena * i.qty)}</td></tr>`).join("")}
             </tbody></table>
