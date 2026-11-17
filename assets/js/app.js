@@ -52,7 +52,7 @@
     <div class="topbar"><div class="wrap">
       <div class="claim">${ICON.heart}<span>Bezpečný domov pro psy se smyslovým hendikepem</span></div>
       <nav>
-        <span class="pages" style="display:flex;gap:20px"><a href="faq.html">Časté dotazy</a><a href="kontakt.html">Kontakt</a></span>
+        <span class="pages"><a href="faq.html">Časté dotazy</a><a href="kontakt.html">Kontakt</a></span>
         <span class="sep"></span>
         <span class="social"><a href="${SOCIAL.fb}" target="_blank" rel="noopener" aria-label="Facebook">${ICON.fb}</a><a href="${SOCIAL.ig}" target="_blank" rel="noopener" aria-label="Instagram">${ICON.ig}</a><a href="${SOCIAL.tt}" target="_blank" rel="noopener" aria-label="TikTok">${ICON.tt}</a></span>
       </nav>
@@ -237,7 +237,7 @@
           </div>
           <aside class="summary">
             <h3>Souhrn objednávky</h3>
-            <fieldset><legend>Doprava</legend>${SHIPPING.map((s) => `<label class="radio"><input type="radio" name="ship" value="${s.id}" ${s.id === ship ? "checked" : ""}> ${s.label}<span class="p">cena doplní se</span></label>`).join("")}</fieldset>
+            <fieldset><legend>Doprava</legend>${SHIPPING.map((s) => `<label class="radio"><input type="radio" name="ship" value="${s.id}" ${s.id === ship ? "checked" : ""}> ${s.label}<span class="p">cena se doplní</span></label>`).join("")}</fieldset>
             <fieldset><legend>Platba</legend>${PAYMENT.map((s) => `<label class="radio"><input type="radio" name="pay" value="${s.id}" ${s.id === pay ? "checked" : ""}> ${s.label}</label>`).join("")}</fieldset>
             <div class="sum-row"><span>Zboží</span><span>${known ? money(sub) : "doplní se"}</span></div>
             <div class="sum-row"><span>Doprava</span><span>doplní se</span></div>

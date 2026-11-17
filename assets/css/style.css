@@ -61,6 +61,7 @@ p { margin: 0; }
 .topbar nav { display: flex; align-items: center; gap: 20px; }
 .topbar a { color: #fff; }
 .topbar a:hover { color: #fff; text-decoration: underline; }
+.topbar .pages { display: flex; gap: 20px; }
 .topbar .sep { width: 1px; height: 14px; background: rgba(255,255,255,.5); }
 .topbar .social { display: flex; gap: 14px; }
 .topbar .social svg { width: 16px; height: 16px; }
@@ -279,7 +280,8 @@ h2 { font-size: 34px; letter-spacing: -.5px; line-height: 1.15; }
 }
 @media (max-width: 900px) {
   .wrap { padding: 0 20px; }
-  .topbar nav .pages, .topbar .sep { display: none; }
+  .topbar nav .pages, .topbar .pages { display: flex; gap: 20px; }
+.topbar .sep { display: none; }
   .header .wrap { height: 72px; }
   .brand img { height: 54px; }
   .burger { display: inline-flex; }
@@ -310,6 +312,11 @@ h2 { font-size: 34px; letter-spacing: -.5px; line-height: 1.15; }
   .product .layout, .cart .layout { grid-template-columns: 1fr; gap: 28px; }
   .product h1 { font-size: 30px; }
   .summary { position: static; }
+  .page-head .paw-deco { display: none; }
+  .cart-items { padding: 4px 16px; }
+  .cart-row { grid-template-columns: 56px 1fr; gap: 12px; }
+  .cart-row .thumb { width: 56px; height: 56px; }
+  .cart-row .right { grid-column: 2; flex-direction: row; align-items: center; justify-content: space-between; }
   .footer .top { grid-template-columns: 1fr 1fr; }
   .footer .brandcol { grid-column: 1 / -1; }
 }
