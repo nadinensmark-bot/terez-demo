@@ -280,8 +280,7 @@ h2 { font-size: 34px; letter-spacing: -.5px; line-height: 1.15; }
 }
 @media (max-width: 900px) {
   .wrap { padding: 0 20px; }
-  .topbar nav .pages, .topbar .pages { display: flex; gap: 20px; }
-.topbar .sep { display: none; }
+  .topbar .pages, .topbar .sep { display: none; }
   .header .wrap { height: 72px; }
   .brand img { height: 54px; }
   .burger { display: inline-flex; }
