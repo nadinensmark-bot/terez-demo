@@ -34,7 +34,8 @@
     key: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6" r="3"/><path d="M12 9v3"/><rect x="8" y="12" width="8" height="9" rx="2"/></svg>',
     gift: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg>'
   };
-  const CAT_ICON = { "Oblečení": ICON.shirt, "Doplňky": ICON.key, "Drobnosti pro radost": ICON.gift };
+  const CAT_FILL = { "Pro pejska": true };
+  const CAT_ICON = { "Oblečení": ICON.shirt, "Doplňky": ICON.key, "Pro pejska": ICON.paw };
   window.SHP_ICON = ICON;
 
   const PRODUCTS = window.SHP_PRODUCTS || [];
@@ -157,12 +158,12 @@
     root.querySelectorAll("[data-fav]").forEach((b) => b.addEventListener("click", (e) => { e.preventDefault(); b.classList.toggle("on"); }));
   }
   function renderGrid(el, list) {
-    el.innerHTML = list.length ? list.map(card).join("") : '<div class="empty-cat">V&nbsp;této kategorii zatím nic není. Připravujeme.</div>';
+    el.innerHTML = list.length ? list.map(card).join("") : '<div class="empty-cat">V&nbsp;této kategorii zatím nic není. Připravujeme pelechy, vodítka a&nbsp;další věci pro pejsky.</div>';
     bindFav(el); fixNbsp(el);
   }
   function renderCats(el, grid, opts) {
     const cats = window.SHP_CATEGORIES || [];
-    el.innerHTML = cats.map((c) => `<button class="catlink" type="button" data-cat="${c}"><span class="caticon">${CAT_ICON[c] || ICON.paw}</span>${c}</button>`).join("");
+    el.innerHTML = cats.map((c) => `<button class="catlink" type="button" data-cat="${c}"><span class="caticon"${CAT_FILL[c] ? ' style="fill:currentColor"' : ""}>${CAT_ICON[c] || ICON.paw}</span>${c}</button>`).join("");
     el.querySelectorAll(".catlink").forEach((b) => b.addEventListener("click", () => {
       if (opts && opts.navigate) { location.href = "eshop.html?kategorie=" + encodeURIComponent(b.dataset.cat); return; }
       const on = b.classList.contains("active");

@@ -1,6 +1,6 @@
 /* Produkty podle tabulky „Seznam produktů“ od Terezy (Drive, 8. 11. 2026).
    Ceny, sklad, hmotnosti a fotky zatím chybí („K upřesnění“), proto cena: null.
-   Kategorie podle „Nástřel textu“: Oblečení, Doplňky, Drobnosti pro radost.
+   Kategorie podle „Nástřel textu“: Oblečení, Doplňky, Pro pejska (změna od Terezy 21. 11.: plánují pelechy, vodítka apod.).
    Zařazení produktů do kategorií je návrh, potvrdí Tereza. */
 window.SHP_PRODUCTS = [
   {
@@ -54,4 +54,4 @@ window.SHP_PRODUCTS = [
     dlouhy: "Originální záložka z kůže s designovými kovovými a textilními detaily. Spojuje praktičnost, osobitý vzhled a podporu smysluplného projektu SensiHome PAW."
   }
 ];
-window.SHP_CATEGORIES = ["Oblečení", "Doplňky", "Drobnosti pro radost"];
+window.SHP_CATEGORIES = ["Oblečení", "Doplňky", "Pro pejska"];
